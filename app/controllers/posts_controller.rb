@@ -18,6 +18,17 @@ class PostsController < ApplicationController
     end
   end
 
+  def edit
+    @group = Group.find(params[:group_id])
+    @post = Post.find(params[:group_id])
+  end
+
+  def update
+    @post = Post.find(parms[:group_id])
+    @post.update(post_params)
+    redirect_to groups_path, notice: "Update Success"
+  end
+
   private
 
   def post_params
